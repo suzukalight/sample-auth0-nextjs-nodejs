@@ -1,0 +1,13 @@
+{
+  "name": "sample-auth0-nextjs-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "suzukalight <mail@mkubara.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "src/*"
+    ]
+  }
+}
