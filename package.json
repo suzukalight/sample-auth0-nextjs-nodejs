@@ -11,6 +11,8 @@
     ]
   },
   "scripts": {
+    "dev": "run-p dev:*",
+    "dev:backend": "yarn workspace backend dev",
     "fix": "run-s typecheck lint format",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --fix ./src",
