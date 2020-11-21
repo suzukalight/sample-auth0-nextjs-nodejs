@@ -20,9 +20,7 @@ export class GqlUserQueryService implements UserQueryService {
     denyIfNotSet(query, ['id']);
     const { id } = query;
 
-    const result = await this.repository.findOne(id, {
-      relations: ['todos'], // eager loading で resolver の負荷を下げる
-    });
+    const result = await this.repository.findOne(id);
     if (!result) return { user: null };
 
     const res: GetUserByIdQueryResult = {

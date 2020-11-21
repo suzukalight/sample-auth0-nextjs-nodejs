@@ -31,18 +31,18 @@ export class GqlUserRepository implements UserRepository {
   }
 
   public async update(userEntity: UserEntity) {
-    const todo = OrmUserFactory.fromEntity(userEntity);
-    const saved = await this.repository.save(todo);
+    const user = OrmUserFactory.fromEntity(userEntity);
+    const saved = await this.repository.save(user);
 
     return OrmUserFactory.toEntity(saved);
   }
 
   public async delete(id: string) {
-    const todo = await this.repository.findOne(id);
-    if (!todo) throw new NotFoundError();
+    const user = await this.repository.findOne(id);
+    if (!user) throw new NotFoundError();
 
     await this.repository.softDelete(id);
 
-    return OrmUserFactory.toEntity(todo);
+    return OrmUserFactory.toEntity(user);
   }
 }
