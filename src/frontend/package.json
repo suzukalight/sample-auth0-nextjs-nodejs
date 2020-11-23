@@ -5,12 +5,22 @@
   "scripts": {
     "dev": "next dev -p 8012",
     "build": "next build",
-    "start": "next start -p 8012"
+    "rebuild": "run-s clean reinstall build",
+    "clean": "run-p clean:*",
+    "clean:next": "rimraf .next",
+    "clean:modules": "rimraf node_modules",
+    "reinstall": "yarn install",
+    "start": "next start -p 8012",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.2.7",
+    "@apollo/react-hooks": "^4.0.0",
+    "graphql": "^15.4.0",
     "next": "10.0.2",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "unfetch": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.9",
