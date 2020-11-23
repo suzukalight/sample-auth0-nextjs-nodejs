@@ -1,6 +1,6 @@
 import { UserDto } from '../../../../entity/user/UserDto';
 import { denyIfNotSet } from '../../../../policy/decision/common';
-import { UserQueryService, GetUserByIdQuery } from '../interface/queryService';
+import { UserQueryService, GetUserByIdQuery, AllUsersQuery } from '../interface/queryService';
 
 type InMemoryStore = {
   entities: Map<string, UserDto>;
@@ -20,5 +20,10 @@ export class MockUserQueryService implements UserQueryService {
     denyIfNotSet(query, ['id']);
     const user = this.store.entities.get(query.id);
     return { user: user ?? null };
+  }
+
+  public async allUsers(_query: AllUsersQuery) {
+    const users = [...this.store.entities.values()];
+    return { users };
   }
 }
