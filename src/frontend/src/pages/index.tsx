@@ -1,57 +1,75 @@
 import * as React from 'react';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+
+type CardProps = {
+  href: string;
+  title: string;
+  description: string;
+};
+
+const Card: React.FC<CardProps> = ({ href, title, description }) => (
+  <a
+    href={href}
+    className="m-4 p-6 sm:w-5/12 border rounded-xl border-gray-200 hover:border-blue-600 hover:text-blue-600"
+  >
+    <h3 className="mb-3 text-2xl">{title} &rarr;</h3>
+    <p className="text-xl">{description}</p>
+  </a>
+);
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="min-h-screen px-2 py-12 flex flex-col justify-center items-center">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+      <main className="sm:px-20 pt-0 pb-12 flex flex-col justify-center items-center">
+        <h1 className="text-5xl text-center text-gray-700 dark:text-gray-100">
+          Next.js + Tailwind CSS 2.0
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing <code className={styles.code}>pages/index.js</code>
+        <p className="text-2xl text-center leading-loose text-gray-700 dark:text-gray-100">
+          Get started by editing{' '}
+          <code className="bg-gray-200 dark:bg-gray-700 rounded-md p-1">src/pages/index.tsx</code>
         </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <div className="mt-12 flex justify-center items-center flex-wrap w-full sm:max-w-3xl">
+          <Card
+            href="https://nextjs.org/docs"
+            title="Documentation"
+            description="Find in-depth information about Next.js features and API."
+          />
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          <Card
+            href="https://nextjs.org/learn"
+            title="Learn"
+            description="Learn about Next.js in an interactive course with quizzes!"
+          />
 
-          <a href="https://github.com/vercel/next.js/tree/master/examples" className={styles.card}>
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          <Card
+            href="https://github.com/vercel/next.js/tree/master/examples"
+            title="Examples"
+            description="Discover and deploy boilerplate example Next.js projects."
+          />
 
-          <a
+          <Card
             href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
+            title="Deploy"
+            description="Instantly deploy your Next.js site to a public URL with Vercel."
+          />
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      <footer className="w-full h-40 border-t border-gray-200 flex justify-center items-center">
         <a
+          className="flex justify-center items-center"
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          Powered by <img src="/vercel.svg" alt="Vercel Logo" className="h-4 m-2" />
         </a>
       </footer>
     </div>
