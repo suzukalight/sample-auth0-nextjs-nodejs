@@ -10,7 +10,7 @@ export interface GetUserByIdPresenter {
 }
 
 export type AllUsersOutputData = {
-  users: UserDto[];
+  users: Nullable<UserDto[]>;
 };
 
 export interface AllUsersPresenter {

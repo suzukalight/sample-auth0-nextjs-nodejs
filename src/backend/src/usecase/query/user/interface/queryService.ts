@@ -13,7 +13,7 @@ export type AllUsersQuery = {
   paging?: Nullable<PagingInputData>;
 };
 export type AllUsersQueryResult = {
-  users: UserDto[];
+  users: Nullable<UserDto[]>;
 };
 
 export interface UserQueryService {
