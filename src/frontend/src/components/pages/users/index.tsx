@@ -1,4 +1,6 @@
 import React from 'react';
+import { User } from '../../../_generated/graphql-client';
+import { Avatar } from '../../atoms/Avatar';
 
 type AvatarAndNameProps = {
   src: string;
@@ -6,8 +8,8 @@ type AvatarAndNameProps = {
 };
 const AvatarAndName: React.FC<AvatarAndNameProps> = ({ src, name }) => (
   <div className="flex items-center">
-    <div className="flex-shrink-0 w-10 h-10">
-      <img className="w-full h-full rounded-full" src={src} alt="" />
+    <div className="flex-shrink-0 w-12 h-12">
+      <Avatar src={src} initial={name} />
     </div>
     <div className="ml-3">
       <p className="text-gray-900 whitespace-no-wrap">{name}</p>
@@ -80,7 +82,10 @@ const UserItem: React.FC<UserItemProps> = ({ avatarUri, name, roles, status }) =
   );
 };
 
-export const UserList: React.FC = () => (
+type UserListProps = {
+  users: User[];
+};
+export const UserList: React.FC<UserListProps> = ({ users }) => (
   <div className="min-h-screen antialiased font-sans bg-gray-200">
     <div className="container mx-auto px-4 sm:px-8">
       <div className="py-8">
@@ -124,6 +129,15 @@ export const UserList: React.FC = () => (
                   roles={['Anonymous']}
                   status="deleted"
                 />
+                {users.map((user) => (
+                  <UserItem
+                    key={user.id}
+                    avatarUri=""
+                    name={user.email}
+                    roles={user.roles}
+                    status="active"
+                  />
+                ))}
               </tbody>
             </table>
           </div>
