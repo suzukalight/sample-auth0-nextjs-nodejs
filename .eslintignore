@@ -10,5 +10,5 @@ src/schema/src/types.ts
 **/lib/*
 **/build/*
 **/.next/*
-**/generated/*
+**/_generated/*
 **/coverage/*
