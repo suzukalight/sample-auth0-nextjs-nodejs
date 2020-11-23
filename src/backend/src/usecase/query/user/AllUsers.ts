@@ -13,7 +13,7 @@ export class AllUsersInteractor implements AllUsersUseCase {
     this.presenter = presenter;
   }
 
-  public async handle(request: AllUsersInputData, actor: UserEntity) {
+  public async handle(_request: AllUsersInputData, actor: UserEntity) {
     denyIfNotSet(actor, ['id']);
 
     // TODO: actorがfetchできる対象をconditionとして払い出す
