@@ -1,5 +1,5 @@
 overwrite: true
-schema: ../schema/schema.graphql
+schema: ../schema/src/**/*.graphql
 documents: ./src/**/*.graphql
 generates:
   ./src/_generated/graphql-client.tsx:
@@ -16,7 +16,7 @@ generates:
       - fragment-matcher
     config:
       apolloClientVersion: 3
-  ./graphql.schema.json:
+  ./src/_generated/graphql.schema.json:
     plugins:
       - introspection
 config:

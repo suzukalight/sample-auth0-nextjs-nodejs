@@ -15,7 +15,7 @@ export type Scalars = {
 export enum Role {
   Anonymous = 'ANONYMOUS',
   Member = 'MEMBER',
-  Admin = 'ADMIN',
+  Admin = 'ADMIN'
 }
 
 export type User = {
@@ -26,6 +26,7 @@ export type User = {
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
+
 
 export type SignUpEmailPasswordRequest = {
   email: Scalars['String'];
@@ -58,21 +59,26 @@ export type Mutation = {
   updateUserRoles?: Maybe<UpdateUserRolesResponse>;
 };
 
+
 export type MutationCreateUserArgs = {
   input?: Maybe<CreateUserRequest>;
 };
+
 
 export type MutationDeleteUserArgs = {
   input?: Maybe<DeleteUserRequest>;
 };
 
+
 export type MutationSignInEmailPasswordArgs = {
   input?: Maybe<SignInEmailPasswordRequest>;
 };
 
+
 export type MutationSignUpEmailPasswordArgs = {
   input?: Maybe<SignUpEmailPasswordRequest>;
 };
+
 
 export type MutationUpdateUserRolesArgs = {
   input?: Maybe<UpdateUserRolesRequest>;
@@ -80,7 +86,7 @@ export type MutationUpdateUserRolesArgs = {
 
 export enum OrderBy {
   Asc = 'ASC',
-  Desc = 'DESC',
+  Desc = 'DESC'
 }
 
 export type PagingInput = {
@@ -130,25 +136,32 @@ export type Query = {
   users?: Maybe<Array<Maybe<User>>>;
 };
 
+
 export type QueryUserArgs = {
   id: Scalars['ID'];
 };
 
-export type AllUsersQueryVariables = Exact<{ [key: string]: never }>;
+export type AllUsersQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type AllUsersQuery = { __typename?: 'Query' } & {
-  users?: Maybe<Array<Maybe<{ __typename?: 'User' } & Pick<User, 'id' | 'email' | 'roles'>>>>;
-};
+
+export type AllUsersQuery = (
+  { __typename?: 'Query' }
+  & { users?: Maybe<Array<Maybe<(
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'email' | 'roles'>
+  )>>> }
+);
+
 
 export const AllUsersDocument = gql`
-  query AllUsers {
-    users {
-      id
-      email
-      roles
-    }
+    query AllUsers {
+  users {
+    id
+    email
+    roles
   }
-`;
+}
+    `;
 
 /**
  * __useAllUsersQuery__
@@ -165,16 +178,12 @@ export const AllUsersDocument = gql`
  *   },
  * });
  */
-export function useAllUsersQuery(
-  baseOptions?: Apollo.QueryHookOptions<AllUsersQuery, AllUsersQueryVariables>,
-) {
-  return Apollo.useQuery<AllUsersQuery, AllUsersQueryVariables>(AllUsersDocument, baseOptions);
-}
-export function useAllUsersLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<AllUsersQuery, AllUsersQueryVariables>,
-) {
-  return Apollo.useLazyQuery<AllUsersQuery, AllUsersQueryVariables>(AllUsersDocument, baseOptions);
-}
+export function useAllUsersQuery(baseOptions?: Apollo.QueryHookOptions<AllUsersQuery, AllUsersQueryVariables>) {
+        return Apollo.useQuery<AllUsersQuery, AllUsersQueryVariables>(AllUsersDocument, baseOptions);
+      }
+export function useAllUsersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllUsersQuery, AllUsersQueryVariables>) {
+          return Apollo.useLazyQuery<AllUsersQuery, AllUsersQueryVariables>(AllUsersDocument, baseOptions);
+        }
 export type AllUsersQueryHookResult = ReturnType<typeof useAllUsersQuery>;
 export type AllUsersLazyQueryHookResult = ReturnType<typeof useAllUsersLazyQuery>;
 export type AllUsersQueryResult = Apollo.QueryResult<AllUsersQuery, AllUsersQueryVariables>;
