@@ -1,5 +1,4 @@
-import { User } from 'schema';
-
+import { User } from '../../_generated/graphql-types';
 import { toGqlUser } from '../utils/converter/user';
 import {
   GetUserPresenter,

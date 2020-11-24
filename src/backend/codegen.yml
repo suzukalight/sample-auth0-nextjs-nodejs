@@ -1,0 +1,23 @@
+overwrite: true
+schema: ../schema/src/**/*.graphql
+generates:
+  ./src/_generated/graphql-types.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      useIndexSignature: true
+  ./src/_generated/introspection-result.ts:
+    plugins:
+      - fragment-matcher
+    config:
+      apolloClientVersion: 3
+  ./src/_generated/graphql.schema.json:
+    plugins:
+      - introspection
+  ./src/_generated/schema.graphql:
+    plugins:
+      - schema-ast
+config:
+  scalars:
+    DateTime: Date

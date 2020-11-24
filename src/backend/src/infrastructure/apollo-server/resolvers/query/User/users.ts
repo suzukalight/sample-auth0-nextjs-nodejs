@@ -1,5 +1,4 @@
-import { QueryResolvers } from 'schema';
-
+import { QueryResolvers } from '../../../../../_generated/graphql-types';
 import { ApolloServerContext } from '../../../types';
 import { GqlUserQueryService } from '../../../../../repository/typeorm/user/queryService/User';
 import { GqlAllUsersPresenter } from '../../../../../presenter/user/AllUsers';

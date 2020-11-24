@@ -1,6 +1,6 @@
 import { DateTimeResolver } from 'graphql-scalars';
-import { Resolvers } from 'schema';
 
+import { Resolvers } from '../../../_generated/graphql-types';
 import * as Entities from './entity';
 import { Query } from './query';
 import { Mutation } from './mutation';

@@ -1,5 +1,4 @@
-import { MutationResolvers } from 'schema';
-
+import { MutationResolvers } from '../../../../../_generated/graphql-types';
 import { ApolloServerContext } from '../../../types';
 import { createUser } from './createUser';
 import { deleteUser } from './deleteUser';

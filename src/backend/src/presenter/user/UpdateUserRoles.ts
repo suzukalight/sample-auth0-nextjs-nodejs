@@ -1,5 +1,4 @@
-import { UpdateUserRolesResponse } from 'schema';
-
+import { UpdateUserRolesResponse } from '../../_generated/graphql-types';
 import {
   UpdateUserRolesOutputData,
   UpdateUserRolesPresenter,

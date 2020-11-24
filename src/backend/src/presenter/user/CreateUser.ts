@@ -1,5 +1,4 @@
-import { CreateUserResponse } from 'schema';
-
+import { CreateUserResponse } from '../../_generated/graphql-types';
 import { toGqlUser } from '../utils/converter/user';
 import {
   CreateUserPresenter,

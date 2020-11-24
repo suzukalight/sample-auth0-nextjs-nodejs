@@ -1,0 +1,90 @@
+enum Role {
+  ANONYMOUS
+  MEMBER
+  ADMIN
+}
+
+type User {
+  id: ID!
+  email: String!
+  roles: [Role!]!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+scalar DateTime
+
+input SignUpEmailPasswordRequest {
+  email: String!
+  password: String!
+}
+
+type SignUpEmailPasswordResponse {
+  user: User
+  token: String!
+}
+
+input SignInEmailPasswordRequest {
+  email: String!
+  password: String!
+}
+
+type SignInEmailPasswordResponse {
+  user: User
+  token: String!
+}
+
+type Mutation {
+  createUser(input: CreateUserRequest): CreateUserResponse
+  deleteUser(input: DeleteUserRequest): DeleteUserResponse
+  signInEmailPassword(input: SignInEmailPasswordRequest): SignInEmailPasswordResponse
+  signUpEmailPassword(input: SignUpEmailPasswordRequest): SignUpEmailPasswordResponse
+  updateUserRoles(input: UpdateUserRolesRequest): UpdateUserRolesResponse
+}
+
+enum OrderBy {
+  ASC
+  DESC
+}
+
+input PagingInput {
+  cursor: String
+  skip: Int
+  take: Int
+}
+
+type PageInfo {
+  totalCount: Int
+  hasNextPage: Boolean
+  endCursor: String
+}
+
+input CreateUserRequest {
+  email: String!
+}
+
+type CreateUserResponse {
+  user: User
+}
+
+input UpdateUserRolesRequest {
+  id: ID!
+  roles: [Role!]!
+}
+
+type UpdateUserRolesResponse {
+  user: User!
+}
+
+input DeleteUserRequest {
+  id: ID!
+}
+
+type DeleteUserResponse {
+  user: User!
+}
+
+type Query {
+  user(id: ID!): User
+  users: [User]
+}

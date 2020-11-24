@@ -1,5 +1,4 @@
-import { Role, User } from 'schema';
-
+import { Role, User } from '../../../_generated/graphql-types';
 import { UserDto } from '../../../entity/user/UserDto';
 
 export const toGqlUser = (user: UserDto | null | undefined): User | null => {

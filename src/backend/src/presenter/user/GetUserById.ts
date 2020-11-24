@@ -1,5 +1,4 @@
-import { User } from 'schema';
-
+import { User } from '../../_generated/graphql-types';
 import {
   GetUserByIdOutputData,
   GetUserByIdPresenter,

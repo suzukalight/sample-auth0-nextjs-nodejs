@@ -1,5 +1,4 @@
-import { DeleteUserResponse } from 'schema';
-
+import { DeleteUserResponse } from '../../_generated/graphql-types';
 import {
   DeleteUserPresenter,
   DeleteUserOutputData,

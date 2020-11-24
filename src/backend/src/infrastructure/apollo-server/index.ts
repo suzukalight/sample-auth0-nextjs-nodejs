@@ -8,8 +8,8 @@ import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { addResolversToSchema } from '@graphql-tools/schema';
 import { Connection } from 'typeorm';
-import { User } from 'schema';
 
+import { User } from '../../_generated/graphql-types';
 import { ApolloServerContext } from './types';
 import { resolvers } from './resolvers';
 import { GqlUserRepository } from '../../repository/typeorm/user/repository/User';
@@ -58,7 +58,7 @@ export const createApolloServer = async (
   httpServer: Server,
 ): Promise<ApolloServer> => {
   // Configure GraphQL Server
-  const schema = loadSchemaSync(path.join(__dirname, '../../../../schema/schema.graphql'), {
+  const schema = loadSchemaSync(path.join(__dirname, '../../_generated/schema.graphql'), {
     loaders: [new GraphQLFileLoader()],
   });
   const schemaWithResolvers = addResolversToSchema({

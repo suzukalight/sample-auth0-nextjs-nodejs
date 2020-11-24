@@ -26,6 +26,5 @@
     "strictPropertyInitialization": false
   },
   "include": ["src/**/*"],
-  "exclude": ["**/_mocks/*", "**/__tests__/*"],
-  "references": [{ "path": "../schema" }]
+  "exclude": ["**/_mocks/*", "**/__tests__/*"]
 }
