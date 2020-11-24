@@ -21,7 +21,7 @@ export const createHttpServer = (app: Express): http.Server => {
 
 export const runHttpServer = (httpServer: http.Server) => {
   // Run server and listen http request
-  const port = 3000;
+  const port = 7777;
   httpServer.listen({ port }, () => {
     console.log(`Apollo Server on http://localhost:${port}/graphql`);
   });
