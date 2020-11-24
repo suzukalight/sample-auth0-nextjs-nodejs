@@ -20,6 +20,12 @@
     "format": "prettier --write -l \"./src/**/*.{js,ts,graphql}\"",
     "test": "run-s test:*",
     "test:backend": "yarn workspace backend test",
+    "build": "run-s build:*",
+    "build:schema": "yarn workspace schema build",
+    "build:backend": "yarn workspace backend build",
+    "rebuild": "run-s rebuild:*",
+    "rebuild:schema": "yarn workspace schema rebuild",
+    "rebuild:backend": "yarn workspace backend rebuild",
     "codegen": "run-s codegen:*",
     "codegen:schema": "yarn workspace schema codegen"
   },

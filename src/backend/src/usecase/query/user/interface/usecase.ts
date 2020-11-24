@@ -9,3 +9,11 @@ export type GetUserByIdInputData = {
 export interface GetUserByIdUseCase {
   handle(request: GetUserByIdInputData, actor: UserEntity): void;
 }
+
+export type AllUsersInputData = {
+  paging?: Nullable<PagingInputData>;
+};
+
+export interface AllUsersUseCase {
+  handle(request: AllUsersInputData, actor: UserEntity): void;
+}

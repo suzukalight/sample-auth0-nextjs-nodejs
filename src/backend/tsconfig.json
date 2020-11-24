@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-
     /* Basic Options */
     "target": "ES2019",
     "module": "commonjs",
@@ -28,5 +26,6 @@
     "strictPropertyInitialization": false
   },
   "include": ["src/**/*"],
-  "exclude": ["**/_mocks/*", "**/__tests__/*"]
+  "exclude": ["**/_mocks/*", "**/__tests__/*"],
+  "references": [{ "path": "../schema" }]
 }

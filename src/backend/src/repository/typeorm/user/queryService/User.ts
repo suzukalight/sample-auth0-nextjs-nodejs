@@ -1,6 +1,8 @@
 import { Connection, Repository } from 'typeorm';
 import { denyIfNotSet } from '../../../../policy/decision/common';
 import {
+  AllUsersQuery,
+  AllUsersQueryResult,
   GetUserByIdQuery,
   GetUserByIdQueryResult,
   UserQueryService,
@@ -25,6 +27,16 @@ export class GqlUserQueryService implements UserQueryService {
 
     const res: GetUserByIdQueryResult = {
       user: OrmUserFactory.toDto(result),
+    };
+    return res;
+  }
+
+  public async allUsers(_query: AllUsersQuery) {
+    const result = await this.repository.find();
+    if (!result) return { users: null };
+
+    const res: AllUsersQueryResult = {
+      users: result.map((user) => OrmUserFactory.toDto(user)),
     };
     return res;
   }

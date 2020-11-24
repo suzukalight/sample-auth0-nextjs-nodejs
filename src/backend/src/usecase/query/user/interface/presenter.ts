@@ -8,3 +8,11 @@ export type GetUserByIdOutputData = {
 export interface GetUserByIdPresenter {
   output(response: GetUserByIdOutputData): void;
 }
+
+export type AllUsersOutputData = {
+  users: Nullable<UserDto[]>;
+};
+
+export interface AllUsersPresenter {
+  output(response: AllUsersOutputData): void;
+}

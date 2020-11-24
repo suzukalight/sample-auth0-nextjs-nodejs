@@ -86,4 +86,5 @@ type DeleteUserResponse {
 
 type Query {
   user(id: ID!): User
+  users: [User]
 }

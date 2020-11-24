@@ -13,6 +13,7 @@ import { User } from 'schema';
 import { ApolloServerContext } from './types';
 import { resolvers } from './resolvers';
 import { GqlUserRepository } from '../../repository/typeorm/user/repository/User';
+import { RoleTypes, UserEntity } from '../../entity';
 
 dotenv.config();
 
@@ -24,7 +25,11 @@ dotenv.config();
 const getContext = async (req: Request, dbConnection: Connection): Promise<ApolloServerContext> => {
   const authorizationHeader = req?.headers['authorization'] as string;
   const token = authorizationHeader?.replace(/^Bearer (.*)/, '$1');
-  if (!token) return { dbConnection, actor: null };
+  if (!token)
+    return {
+      dbConnection,
+      actor: new UserEntity({ id: '1', email: 'aaa@bbb.com', roles: [RoleTypes.Member] }),
+    }; // FIXME
 
   try {
     const { JWT_SECRET } = process.env;
