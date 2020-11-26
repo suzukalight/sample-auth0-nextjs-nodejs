@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import './styles/globals.compiled.css';
-
 type CardProps = {
   href: string;
   title: string;
@@ -19,7 +17,7 @@ const Card: React.FC<CardProps> = ({ href, title, description }) => (
   </a>
 );
 
-export default function Home() {
+export default function Welcome() {
   return (
     <div className="min-h-screen px-2 py-12 flex flex-col justify-center items-center">
       <Head>
