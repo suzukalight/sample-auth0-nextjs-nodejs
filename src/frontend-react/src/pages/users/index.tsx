@@ -1,5 +1,17 @@
 import React from 'react';
 
-const UsersPage = () => <div>users</div>;
+import { UserList } from '../../components/pages/users';
+import { useAllUsersQuery, User } from '../../_generated/graphql-client';
 
-export default UsersPage;
+export const UserListPage: React.FC = () => {
+  const data = useAllUsersQuery();
+  if (!data) return null;
+
+  const { users } = data?.data || {};
+  if (!users) return null;
+
+  const _users = (users || []).filter((t) => !!t) as User[];
+  return <UserList users={_users} />;
+};
+
+export default UserListPage;
