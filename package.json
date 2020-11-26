@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:backend": "yarn workspace backend dev",
-    "dev:frontend": "yarn workspace frontend dev",
+    "dev:frontend-react": "yarn workspace frontend-react start",
     "fix": "run-s typecheck lint format",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --fix ./src",
@@ -22,7 +22,7 @@
     "test:backend": "yarn workspace backend test",
     "codegen": "run-s codegen:*",
     "codegen:backend": "yarn workspace backend codegen",
-    "codegen:frontend": "yarn workspace frontend codegen",
+    "codegen:frontend-react": "yarn workspace frontend-react codegen",
     "build": "run-s codegen build:*",
     "build:schema": "yarn workspace schema build",
     "build:backend": "yarn workspace backend build",
@@ -42,9 +42,9 @@
     "@graphql-codegen/typescript-react-apollo": "^2.0.5",
     "@graphql-codegen/typescript-resolvers": "^1.17.7",
     "@types/jest": "^26.0.9",
-    "@typescript-eslint/eslint-plugin": "^3.9.0",
-    "@typescript-eslint/parser": "^3.9.0",
-    "eslint": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-standard": "^4.0.1",
@@ -57,6 +57,6 @@
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.1.4",
-    "typescript": "^3.9.7"
+    "typescript": "^4.1.2"
   }
 }
