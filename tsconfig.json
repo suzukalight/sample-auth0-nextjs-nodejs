@@ -29,5 +29,5 @@
     "strictPropertyInitialization": false
   },
   "include": ["src/**/*", "/*.js"],
-  "exclude": ["node_modules", "**/node_modules/*", "generated"]
+  "exclude": ["node_modules", "**/node_modules/*", "generated", "**/frontend/*"]
 }
