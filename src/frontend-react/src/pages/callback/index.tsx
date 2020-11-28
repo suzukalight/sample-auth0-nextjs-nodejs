@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 const Callback = () => {
   // const { query } = useRouter();
 
-  return <Redirect to="/users" />;
+  return <Redirect to="/account" />;
 };
 
 export default Callback;
