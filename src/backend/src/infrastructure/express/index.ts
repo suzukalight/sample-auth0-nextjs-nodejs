@@ -1,6 +1,11 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 import http from 'http';
+import dotenv from 'dotenv';
+
+import { applyLoggerMiddleware } from './middleware/logger-winston';
+
+dotenv.config();
 
 export const createExpressApp = (): Express => {
   // Create Express app instance
@@ -8,6 +13,7 @@ export const createExpressApp = (): Express => {
 
   // Configure Express App
   app.use(cors());
+  applyLoggerMiddleware(app);
 
   return app;
 };
@@ -21,7 +27,7 @@ export const createHttpServer = (app: Express): http.Server => {
 
 export const runHttpServer = (httpServer: http.Server) => {
   // Run server and listen http request
-  const port = 7777;
+  const port = process.env.PORT;
   httpServer.listen({ port }, () => {
     console.log(`Apollo Server on http://localhost:${port}/graphql`);
   });

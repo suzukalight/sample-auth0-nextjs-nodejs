@@ -17,7 +17,7 @@ const allowOnlyWhenActorIsOwnerOrAdmin = (
   denyUnauthenticated(actor, message);
 
   if (actor?.getRoles().some((role) => role.isEqual(RoleTypes.Admin))) return;
-  if (actor?.getId().isEqual(target?.getId()!)) return;
+  if (actor?.getId().isEqual(target!.getId())) return;
 
   throw new UnauthorizedError(message);
 };

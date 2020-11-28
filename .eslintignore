@@ -11,3 +11,5 @@ node_modules/**
 **/.next/*
 **/_generated/*
 **/coverage/*
+
+**/frontend/*

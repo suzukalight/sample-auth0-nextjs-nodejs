@@ -32,7 +32,7 @@ const Td: React.FC = ({ children }) => (
 );
 
 type Status = 'active' | 'disabled' | 'deleted';
-type StatusProps = {
+type StatusLabelProps = {
   status: Status;
 };
 const StatusColorTable = {
@@ -41,7 +41,7 @@ const StatusColorTable = {
   disabled: { text: 'text-orange-900', bg: 'bg-orange-200' },
   deleted: { text: 'text-red-900', bg: 'bg-red-200' },
 };
-const Status: React.FC<StatusProps> = ({ status }) => {
+const StatusLabel: React.FC<StatusLabelProps> = ({ status }) => {
   const colorTable = StatusColorTable[status] || StatusColorTable.none;
 
   return (
@@ -76,7 +76,7 @@ const UserItem: React.FC<UserItemProps> = ({ avatarUri, name, roles, status }) =
         <Text>Jan 21, 2020</Text>
       </Td>
       <Td>
-        <Status status={status} />
+        <StatusLabel status={status} />
       </Td>
     </tr>
   );

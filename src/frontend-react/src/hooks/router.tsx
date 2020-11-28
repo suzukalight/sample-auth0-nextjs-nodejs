@@ -1,8 +1,11 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo } from 'react';
 import { useParams, useLocation, useHistory, useRouteMatch } from 'react-router-dom';
-import { createBrowserHistory, Location } from 'history';
+import { createBrowserHistory } from 'history';
 import queryString from 'query-string';
 
+type Query = {
+  [key: string]: string;
+};
 export const history = createBrowserHistory();
 
 export function useRouter<ParamTypes, MatchTypes>() {
@@ -11,8 +14,7 @@ export function useRouter<ParamTypes, MatchTypes>() {
   const history = useHistory();
   const match = useRouteMatch<MatchTypes>();
   const parsed = { ...queryString.parse(location.search) };
-
-  const query: any = {};
+  const query: Query = useMemo<Query>(() => ({}), []);
 
   Object.keys(parsed).forEach((key) => {
     query[key] = decodeURIComponent(parsed[key] as string);
