@@ -1,4 +1,5 @@
 import React from 'react';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 import { UserList } from '../../components/pages/users';
 import { useAllUsersQuery, User } from '../../_generated/graphql-client';
@@ -14,4 +15,4 @@ export const UserListPage: React.FC = () => {
   return <UserList users={_users} />;
 };
 
-export default UserListPage;
+export default withAuthenticationRequired(UserListPage);
