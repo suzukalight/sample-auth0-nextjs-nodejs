@@ -6,6 +6,7 @@ import queryString from 'query-string';
 type Query = {
   [key: string]: string;
 };
+
 export const history = createBrowserHistory();
 
 export function useRouter<ParamTypes, MatchTypes>() {
@@ -13,12 +14,16 @@ export function useRouter<ParamTypes, MatchTypes>() {
   const location = useLocation();
   const history = useHistory();
   const match = useRouteMatch<MatchTypes>();
-  const parsed = { ...queryString.parse(location.search) };
-  const query: Query = useMemo<Query>(() => ({}), []);
 
-  Object.keys(parsed).forEach((key) => {
-    query[key] = decodeURIComponent(parsed[key] as string);
-  });
+  const query: Query = useMemo<Query>(() => {
+    const parsed = { ...queryString.parse(location.search) };
+    const query: Query = {};
+    Object.keys(parsed).forEach((key) => {
+      query[key] = decodeURIComponent(parsed[key] as string);
+    });
+
+    return query;
+  }, [location.search]);
 
   return useMemo(() => {
     return {
