@@ -6,7 +6,7 @@ const LoginButton: React.FC = () => {
 
   return (
     <button
-      className="mr-5 bg-blue-700 text-white border border-blue-700 font-bold py-2 px-6 rounded-md"
+      className="bg-blue-700 text-white border border-blue-700 font-bold py-2 px-6 rounded-md"
       onClick={() => loginWithRedirect()}
     >
       Log In
