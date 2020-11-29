@@ -1,11 +1,23 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-// import { useRouter } from '../../hooks/router';
+import { Link } from 'react-router-dom';
+
+import Loading from '../../components/atoms/Loading';
+
+import { useAuth0User } from '../../hooks/auth0-user';
 
 const Callback = () => {
-  // const { query } = useRouter();
+  const { isLoading } = useAuth0User();
 
-  return <Redirect to="/account" />;
+  if (isLoading) return <Loading />;
+
+  return (
+    <div className="w-full h-full p-8 flex justify-center align-middle flex-col">
+      <div className="flex flex-row justify-center align-middle m-12">Redirecting your page...</div>
+      <div className="flex flex-row justify-center align-middle">
+        <Link to="/">Or click here to manually go to the home page</Link>
+      </div>
+    </div>
+  );
 };
 
 export default Callback;
