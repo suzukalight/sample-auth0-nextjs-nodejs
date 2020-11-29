@@ -9,7 +9,7 @@ const LoginPage: React.FC = () => {
   const { isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) return <Loading />;
-  if (isAuthenticated) return <Redirect to="/" />;
+  if (isAuthenticated) return <Redirect to="/account" />;
 
   return (
     <div className="flex align-middle flex-col m-8">
