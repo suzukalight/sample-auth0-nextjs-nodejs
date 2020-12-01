@@ -47,7 +47,7 @@ const AuthorizedApolloProvider: React.FC = ({ children }) => {
 
     return {
       headers: {
-        authorization: `Bearer ${token}`,
+        authorization: token ? `Bearer ${token}` : '',
       },
     };
   });

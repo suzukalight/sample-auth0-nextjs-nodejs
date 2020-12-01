@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Auth0Provider as RawAuth0Provider, AppState } from '@auth0/auth0-react';
+import { Auth0Provider as BaseAuth0Provider, AppState } from '@auth0/auth0-react';
 
 const createRedirectCallback = (history: any) => (appState: AppState) => {
   history.replace({
-    pathname: appState && appState.returnTo ? appState.returnTo : window.location.pathname,
+    pathname: appState && appState.returnTo ? appState.returnTo : '/account',
     search: '',
   });
 };
@@ -14,7 +14,7 @@ const Auth0Provider: React.FC = ({ children }) => {
   const onRedirectCallback = useMemo(() => createRedirectCallback(history), [history]);
 
   return (
-    <RawAuth0Provider
+    <BaseAuth0Provider
       domain={process.env.REACT_APP_AUTH0_DOMAIN!}
       clientId={process.env.REACT_APP_AUTH0_CLIENT_ID!}
       audience={process.env.REACT_APP_AUTH0_AUDIENCE}
@@ -24,7 +24,7 @@ const Auth0Provider: React.FC = ({ children }) => {
       useRefreshTokens
     >
       {children}
-    </RawAuth0Provider>
+    </BaseAuth0Provider>
   );
 };
 
