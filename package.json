@@ -23,12 +23,15 @@
     "codegen": "run-s codegen:*",
     "codegen:backend": "yarn workspace backend codegen",
     "codegen:frontend-react": "yarn workspace frontend-react codegen",
+    "clean": "run-p clean:*",
+    "clean:backend": "yarn workspace backend clean",
+    "clean:frontend-react": "yarn workspace frontend-react clean",
     "build": "run-s codegen build:*",
-    "build:schema": "yarn workspace schema build",
     "build:backend": "yarn workspace backend build",
+    "build:frontend-react": "yarn workspace frontend-react build",
     "rebuild": "run-s codegen rebuild:*",
     "rebuild:backend": "yarn workspace backend rebuild",
-    "rebuild:frontend": "yarn workspace frontend rebuild"
+    "rebuild:frontend-react": "yarn workspace frontend-nextjs rebuild"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.7",
