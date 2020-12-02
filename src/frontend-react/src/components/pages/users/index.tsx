@@ -86,7 +86,7 @@ type UserListProps = {
   users: User[];
 };
 export const UserList: React.FC<UserListProps> = ({ users }) => (
-  <div className="min-h-screen antialiased font-sans bg-gray-200">
+  <div className="w-full min-h-screen antialiased font-sans bg-gray-200">
     <div className="container mx-auto px-4 sm:px-8">
       <div className="py-8">
         <div>

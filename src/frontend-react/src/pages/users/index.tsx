@@ -2,6 +2,8 @@ import React from 'react';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 import { UserList } from '../../components/pages/users';
+import DefaultLayout from '../../components/layouts/DefaultLayout';
+
 import { useAllUsersQuery, User } from '../../_generated/graphql-client';
 
 export const UserListPage: React.FC = () => {
@@ -12,7 +14,11 @@ export const UserListPage: React.FC = () => {
   if (!users) return null;
 
   const _users = (users || []).filter((t) => !!t) as User[];
-  return <UserList users={_users} />;
+  return (
+    <DefaultLayout>
+      <UserList users={_users} />
+    </DefaultLayout>
+  );
 };
 
 export default withAuthenticationRequired(UserListPage);
