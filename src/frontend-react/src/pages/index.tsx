@@ -17,11 +17,11 @@ const RootPage: React.FC = () => {
 
   return user ? (
     <DefaultLayout>
-      <div className="flex flex-row justify-center align-middle m-12">authorized.</div>
+      <div className="flex flex-row justify-center align-middle m-12">Authorized</div>
     </DefaultLayout>
   ) : (
     <DefaultLayout>
-      <div className="flex flex-row justify-center align-middle m-12">not authorized.</div>
+      <div className="flex flex-row justify-center align-middle m-12">Unauthorized</div>
     </DefaultLayout>
   );
 };
