@@ -24,10 +24,10 @@ monorepo 構成で、下記のプロジェクトを含んでいます；
 
 https://auth0.com/
 
-デフォルトで 1 つテナントが作成されるので、それを利用しても良いですが、サンプル用に新しく 1 つ作成してみます。  
-画面右上のアバターアイコンから「+ Create tenant」をクリックし、下記の項目を入力します：
+画面右上のアバターアイコンから「+ Create tenant」をクリックし、下記の項目を入力します：  
+（※デフォルトで 1 つテナントが作成されるので、それを利用しても良いです）
 
-- Tenant: **Domain: react-graphql-sample-1**
+- Tenant Domain: **react-graphql-sample-1**
 - Region: **US**
 
 画面左のメニューから「Applications」を選択し、「+ Create Applicatiion」ボタンをクリックします。ダイアログで下記の設定をします；

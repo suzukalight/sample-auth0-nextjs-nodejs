@@ -14,11 +14,10 @@ https://auth0.com/
 
 こちらからサインアップします。
 
-デフォルトで 1 つテナントが作成されるので、それを利用しても良いですが、サンプル用に新しく 1 つ作成してみます；
+画面右上のアバターアイコンから「+ Create tenant」をクリックし、下記の項目を入力します：  
+（※デフォルトで 1 つテナントが作成されるので、それを利用しても良いです）
 
-画面右上のアバターアイコンから「+ Create tenant」をクリックし、下記の項目を入力します：
-
-- Tenant: **Domain: react-graphql-sample-1**
+- Tenant Domain: **react-graphql-sample-1**
 - Region: **US**
 
 ## Auth0 アプリの作成と設定
